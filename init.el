@@ -16,7 +16,7 @@
    '(projectile cider clojure-mode company use-package)))
 
 ;; Move backup files
-(setq backup-directory-alist `(("." . "~/.emacs_saves")))
+(setq backup-directory-alist `(("." . "~/.saves_emacs")))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
