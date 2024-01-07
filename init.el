@@ -13,6 +13,15 @@
 (use-package clojure-mode
   :ensure t)
 
+(use-package lsp-mode
+  :ensure t)
+
+(use-package lsp-treemacs
+  :ensure t)
+
+(use-package flycheck
+  :ensure t)
+
 (use-package cider
   :ensure t)
 
@@ -36,16 +45,20 @@
  ;; If there is more than one, they won't work right.
  '(inferior-lisp-program "clojure")
  '(package-selected-packages
-   '(vertico projectile cider clojure-mode company use-package)))
+   '(clojure-lsp vertico projectile cider clojure-mode company use-package)))
+
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 ;; Move backup files
 (setq backup-directory-alist `(("." . "~/.saves_emacs")))
 
 ;; Auto complete
-(add-hook 'cider-repl-mode-hook #'company-mode)
-(add-hook 'cider-mode-hook #'company-mode)
+(add-hook 'cider-repl-mode-hook 'lsp)
+(add-hook 'clojurescript-mode-hook 'lsp)
+(add-hook 'clojure-mode-hook 'lsp)
+
 (setq company-idle-delay nil) ; never start completions automatically
-(global-set-key (kbd "TAB") #'company-complete) ; use M-TAB, a.k.a. C-M-i, as manual trigger
+(global-set-key (kbd "C-<return>") #'company-complete) ; use M-TAB, a.k.a. C-M-i, as manual trigger
 
 ;; Projectile dir
 (setq projectile-project-search-path '("~/projects"))
