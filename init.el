@@ -11,8 +11,6 @@
 
 (turn-on-pbcopy)
 
-(add-hook 'after-init-hook 'global-company-mode)
-
 (use-package clojure-mode
   :ensure t)
 
@@ -37,6 +35,8 @@
 
 (use-package company
   :ensure t)
+
+(add-hook 'after-init-hook 'global-company-mode)
 
 (use-package vertico
   :ensure t)
