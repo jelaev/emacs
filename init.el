@@ -103,4 +103,4 @@
   :config
   (dashboard-setup-startup-hook))
 
-(setq dashboard-banner-logo-title "Alexandr Zhelaev dashboard")
+(setq dashboard-banner-logo-title "My dashboard")
